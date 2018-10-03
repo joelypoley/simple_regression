@@ -23,12 +23,12 @@ gcloud ml-engine jobs submit training ${JOB_NAME} \
         --module-name=trainer.task \
         --package-path=${PACKAGE_PATH}  \
         --runtime-version=1.10 \
+        --config=config.yaml \
         -- \
         --train=${TRAIN_FILES} \
         --max-steps=10000 \
         --batch-size=16 \
         --eval=${EVAL_FILES} \
-        --learning-rate=0.0001
 
 
 
