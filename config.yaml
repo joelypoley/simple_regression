@@ -1,5 +1,4 @@
 trainingInput:
-  scaleTier: BASIC_GPU # BASIC | BASIC_GPU | STANDARD_1 | PREMIUM_1
   ######### example of hyper-parameter tuning config ##############
   hyperparameters:
     goal: MINIMIZE # Set to MINIMIZE or MAXIMIZE (e.g. rmse vs. accuracy)

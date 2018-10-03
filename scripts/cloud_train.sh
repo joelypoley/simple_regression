@@ -1,7 +1,7 @@
 echo "Submitting a Cloud ML Engine job..."
 
 REGION="us-east1"
-TIER="BASIC" # BASIC | BASIC_GPU | STANDARD_1 | PREMIUM_1
+TIER="BASIC_GPU" # BASIC | BASIC_GPU | STANDARD_1 | PREMIUM_1
 BUCKET="joelsdata" # change to your bucket name
 
 CURRENT_DATE_TIME="`date +%Y_%m_%d_%H_%M_%S`"
