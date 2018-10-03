@@ -37,9 +37,9 @@ def main():
         max_steps=FLAGS.max_steps,
     )
     exporter = tf.estimator.FinalExporter(
-        'estimator',
+        "estimator",
         data.json_serving_input_fn,
-        as_text=False # change to true if you want to export the model as readable text
+        as_text=False,  # change to true if you want to export the model as readable text
     )
     eval_spec = tf.estimator.EvalSpec(
         input_fn=data.get_input_fn(FLAGS.eval),

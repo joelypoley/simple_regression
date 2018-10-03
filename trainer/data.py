@@ -36,9 +36,7 @@ def get_input_fn(file_path, shuffle=False, batch_size=1, repeat=1):
 
 
 def json_serving_input_fn():
-    receiver_tensors = {
-        FEATURE_NAME : tf.placeholder(shape=[None], dtype=tf.float32),
-    }
+    receiver_tensors = {FEATURE_NAME: tf.placeholder(shape=[None], dtype=tf.float32)}
     features = {
         key: tf.expand_dims(tensor, -1) for key, tensor in receiver_tensors.items()
     }
