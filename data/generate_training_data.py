@@ -10,6 +10,7 @@ import tensorflow as tf
 
 GRADIENT = 2
 
+
 def initialise_hyper_params(args_parser):
     args_parser.add_argument("--num-training-examples", type=int, default=1000)
     args_parser.add_argument("--output-csv", required=True)
@@ -19,12 +20,12 @@ def initialise_hyper_params(args_parser):
 
 def main():
     csv_path = os.path.relpath(FLAGS.output_csv)
-    with open(csv_path, 'w') as csv:
-        csv.write('x, y\n')
+    with open(csv_path, "w") as csv:
+        csv.write("x, y\n")
         for _ in xrange(FLAGS.num_training_examples):
             x = random.randrange(1000)
             y = GRADIENT * x + random.random()
-            csv.write('{}, {}\n'.format(x, y))
+            csv.write("{}, {}\n".format(x, y))
 
 
 args_parser = argparse.ArgumentParser()
