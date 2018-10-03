@@ -1,2 +1,5 @@
 *.pyc
 trained_models/
+js_trained_models/
+.DS_STORE
+inference_web_app/.cache/

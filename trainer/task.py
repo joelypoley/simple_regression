@@ -57,6 +57,12 @@ def main():
         ),
     )
     tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
+    tf.logging.log(
+        tf.logging.INFO,
+        "Finished training and evaulating. To see results type\ntensorboard --logdir={}\nin another window.".format(
+            FLAGS.job_dir
+        ),
+    )
 
 
 args_parser = argparse.ArgumentParser()
