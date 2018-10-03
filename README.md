@@ -1,4 +1,5 @@
-# Goals
+This project is a minimal example of:
 
- * Train a model, using `tfrecord`s on google cloud.
- * Save the model and perform inference in the browser.
+ * Converting data into `tfrecord` format.
+ * Training on google cloud.
+ * Saving the model and performing inference in the browser.
