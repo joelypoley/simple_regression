@@ -12,7 +12,7 @@ FEATURE_NAME = "x"
 LABEL_NAME = "y"
 
 
-def initialise_hyper_params(args_parser):
+def initialise_flags(args_parser):
     args_parser.add_argument("--csv", required=True)
     args_parser.add_argument("--train-tfrecord", required=True)
     args_parser.add_argument("--eval-tfrecord", required=True)
@@ -57,7 +57,7 @@ def main():
 
 
 args_parser = argparse.ArgumentParser()
-FLAGS = initialise_hyper_params(args_parser)
+FLAGS = initialise_flags(args_parser)
 
 if __name__ == "__main__":
     main()

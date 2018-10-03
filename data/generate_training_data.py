@@ -11,7 +11,7 @@ import tensorflow as tf
 GRADIENT = 2
 
 
-def initialise_hyper_params(args_parser):
+def initialise_flags(args_parser):
     args_parser.add_argument("--num-training-examples", type=int, default=1000)
     args_parser.add_argument("--output-csv", required=True)
 
@@ -29,7 +29,7 @@ def main():
 
 
 args_parser = argparse.ArgumentParser()
-FLAGS = initialise_hyper_params(args_parser)
+FLAGS = initialise_flags(args_parser)
 
 if __name__ == "__main__":
     main()

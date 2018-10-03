@@ -8,7 +8,7 @@ import os
 import tensorflow as tf
 
 
-def initialise_hyper_params(args_parser):
+def initialise_flags(args_parser):
     args_parser.add_argument("--tfrecord", required=True)
     args_parser.add_argument("--head-only", type=bool, default=False)
 
@@ -31,7 +31,7 @@ def main():
 
 
 args_parser = argparse.ArgumentParser()
-FLAGS = initialise_hyper_params(args_parser)
+FLAGS = initialise_flags(args_parser)
 
 if __name__ == "__main__":
     main()
