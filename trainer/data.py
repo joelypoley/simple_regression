@@ -22,6 +22,7 @@ def parse_fn(example_proto):
 def get_input_fn(file_path, shuffle=False, batch_size=1, repeat=1):
 
     def input_fn():
+        # TODO: make the tfrecords sharded by default and use tf.data.Dataset.list_files.
         dataset = tf.data.TFRecordDataset(file_path).map(parse_fn)
         dataset = dataset.cache()
         if shuffle:
