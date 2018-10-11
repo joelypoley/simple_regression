@@ -19,18 +19,18 @@ def parse_fn(example_proto):
     return parsed_features, label
 
 
-def get_input_fn(file_path, shuffle=False, batch_size=1, repeat=1):
+def get_input_fn(file_patttern, shuffle=False, batch_size=1, num_epochs=1):
 
     def input_fn():
-        # TODO: make the tfrecords sharded by default and use tf.data.Dataset.list_files.
-        dataset = tf.data.TFRecordDataset(file_path).map(parse_fn)
-        dataset = dataset.cache()
+        files = tf.data.Dataset.list_files(file_patttern)
+        dataset = tf.data.TFRecordDataset(files)
         if shuffle:
             dataset = dataset.shuffle(buffer_size=128)
 
-        dataset = dataset.repeat(repeat)
+        dataset = dataset.repeat(num_epochs)
+        dataset = dataset.map(parse_fn)
+
         dataset = dataset.batch(batch_size)
-        dataset = dataset.prefetch(buffer_size=1)
         return dataset
 
     return input_fn

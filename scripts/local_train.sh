@@ -16,8 +16,8 @@ gcloud ml-engine local train \
         --package-path=${PACKAGE_PATH} \
         -- \
         --train=${TRAIN_FILES} \
-        --max-steps=10000 \
-        --batch-size=16 \
+        --max-steps=10 \
+        --batch-size=1 \
         --eval=${EVAL_FILES} \
         --learning-rate=0.001 \
         --job-dir=${MODEL_DIR} \

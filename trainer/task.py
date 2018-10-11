@@ -16,7 +16,7 @@ def initialise_flags(args_parser):
     args_parser.add_argument("--batch-size", type=int, default=1)
     args_parser.add_argument("--eval", required=True)
     args_parser.add_argument("--learning-rate", type=float, default=1e-2)
-    args_parser.add_argument("--throttle-secs", type=int, default=30)
+    args_parser.add_argument("--throttle-secs", type=int, default=240)
     args_parser.add_argument("--job-dir", required=True)
     args_parser.add_argument(
         "--verbosity",
@@ -32,7 +32,7 @@ def main():
 
     train_spec = tf.estimator.TrainSpec(
         input_fn=data.get_input_fn(
-            FLAGS.train, shuffle=True, repeat=1000, batch_size=FLAGS.batch_size
+            FLAGS.train, shuffle=True, batch_size=FLAGS.batch_size
         ),
         max_steps=FLAGS.max_steps,
     )
@@ -44,7 +44,6 @@ def main():
     eval_spec = tf.estimator.EvalSpec(
         input_fn=data.get_input_fn(FLAGS.eval),
         steps=None,
-        start_delay_secs=10,
         throttle_secs=FLAGS.throttle_secs,
         exporters=[exporter],
     )
